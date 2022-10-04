@@ -249,6 +249,8 @@ function App() {
             id="state"
             style={{ marginBottom: "10px" }}
             onChange={stateChangeHandler}
+            value={selectedState}
+            defaultValue={0}
           >
             {states.map((state, index) => {
               return (
@@ -265,6 +267,7 @@ function App() {
             style={{ marginBottom: "10px" }}
             onChange={cityChangeHandler}
             value={selectedCity}
+            defaultValue={0}
           >
             {states[selectedState].city.map((city, index) => {
               return (
@@ -280,6 +283,7 @@ function App() {
             id="landmark"
             onChange={landmarkChangeHandler}
             value={selectedLandmark}
+            defaultValue={0}
           >
             {states[selectedState].city[selectedCity].landmarks.map(
               (land, index) => {
