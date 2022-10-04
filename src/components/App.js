@@ -299,22 +299,22 @@ function App() {
         </section>
         <section>
           <Description
-            first={"state-title"}
-            second={"state-name"}
+            first={"state-name"}
+            second={"state-title"}
             third={"state-description"}
             desc={states[selectedState].description}
             name={states[selectedState].name}
           />
           <Description
-            first={"city-title"}
-            second={"city-name"}
+            first={"city-name"}
+            second={"city-title"}
             third={"city-description"}
             desc={states[selectedState].city[selectedCity].description}
             name={states[selectedState].city[selectedCity].name}
           />
           <Description
-            first={"landmark-title"}
-            second={"landmark-name"}
+            first={"landmark-name"}
+            second={"landmark-title"}
             third={"landmark-description"}
             desc={
               states[selectedState].city[selectedCity].landmarks[
