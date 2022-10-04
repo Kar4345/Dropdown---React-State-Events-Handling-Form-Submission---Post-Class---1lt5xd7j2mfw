@@ -229,11 +229,10 @@ function App() {
     console.log(e.target.value);
     setSelectedState(e.target.value);
     setSelectedCity(0);
-	setSelectedLandmark(0);
+    setSelectedLandmark(0);
   }
   function cityChangeHandler(e) {
-    
-	setSelectedCity(e.target.value)
+    setSelectedCity(e.target.value);
     setSelectedLandmark(0);
   }
   function landmarkChangeHandler(e) {
@@ -243,60 +242,88 @@ function App() {
 
   return (
     <div id="main">
-      <div style={{display:"flex"}}>
-      <section style={{marginRight:"50px"}}>
-      State:{" "}
-      <select
-        id="state"
-        style={{ marginBottom: "10px" }}
-        onChange={stateChangeHandler}
-
-      >
-        {states.map((state, index) => {
-          return (
-            <option key={index} value={index}>
-              {state.name}
-            </option>
-          );
-        })}
-      </select>
-      <br />
-      
-      City:{" "}
-      <select
-        id="city"
-        style={{ marginBottom: "10px" }}
-        onChange={cityChangeHandler}
-		value={selectedCity}
-      >
-        {states[selectedState].city.map((city, index) => {
-          return (
-            <option key={index} value={index}>
-              {city.name}
-            </option>
-          );
-        })}
-      </select>
-      <br />
-      
-      Landmark:{" "}
-      <select id="landmark" onChange={landmarkChangeHandler} value={selectedLandmark}>
-        {states[selectedState].city[selectedCity].landmarks.map((land, index) => {
-          return (
-            <option key={index} value={index}>
-              {land.name}
-            </option>
-          );
-        })}
-      </select>
-      <br />
-      
-      </section>
-      <section>
-      <Description first={"#state-title"} second={"#state-name"} third={"#state-description"} desc={states[selectedState].description} name={states[selectedState].name}/>
-      <Description first={"#city-title"} second={"#city-name"} third={"#city-description"} desc={states[selectedState].city[selectedCity].description} name={states[selectedState].city[selectedCity].name}/>
-      <Description first={"#landmark-title"} second={"#landmark-name"} third={"#landmark-description"} desc={states[selectedState].city[selectedCity].landmarks[selectedLandmark].description} name={states[selectedState].city[selectedCity].landmarks[selectedLandmark].name}/>
-      </section>
+      <div style={{ display: "flex" }}>
+        <section style={{ marginRight: "50px" }}>
+          State:{" "}
+          <select
+            id="state"
+            style={{ marginBottom: "10px" }}
+            onChange={stateChangeHandler}
+          >
+            {states.map((state, index) => {
+              return (
+                <option key={index} value={index}>
+                  {state.name}
+                </option>
+              );
+            })}
+          </select>
+          <br />
+          City:{" "}
+          <select
+            id="city"
+            style={{ marginBottom: "10px" }}
+            onChange={cityChangeHandler}
+            value={selectedCity}
+          >
+            {states[selectedState].city.map((city, index) => {
+              return (
+                <option key={index} value={index}>
+                  {city.name}
+                </option>
+              );
+            })}
+          </select>
+          <br />
+          Landmark:{" "}
+          <select
+            id="landmark"
+            onChange={landmarkChangeHandler}
+            value={selectedLandmark}
+          >
+            {states[selectedState].city[selectedCity].landmarks.map(
+              (land, index) => {
+                return (
+                  <option key={index} value={index}>
+                    {land.name}
+                  </option>
+                );
+              }
+            )}
+          </select>
+          <br />
+        </section>
+        <section>
+          <Description
+            first={"state-title"}
+            second={"state-name"}
+            third={"state-description"}
+            desc={states[selectedState].description}
+            name={states[selectedState].name}
+          />
+          <Description
+            first={"city-title"}
+            second={"city-name"}
+            third={"city-description"}
+            desc={states[selectedState].city[selectedCity].description}
+            name={states[selectedState].city[selectedCity].name}
+          />
+          <Description
+            first={"landmark-title"}
+            second={"landmark-name"}
+            third={"landmark-description"}
+            desc={
+              states[selectedState].city[selectedCity].landmarks[
+                selectedLandmark
+              ].description
+            }
+            name={
+              states[selectedState].city[selectedCity].landmarks[
+                selectedLandmark
+              ].name
+            }
+          />
+        </section>
       </div>
     </div>
   );
